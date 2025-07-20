@@ -1,0 +1,18 @@
+Script: process_list.sh
+bash
+Copy
+Edit
+#!/bin/bash
+
+# Display all processes including those without a TTY
+# Show detailed info: user, PID, %CPU, %MEM, and command
+echo "---------------------------------------------"
+echo "Full Process List with Detailed Info:"
+echo "---------------------------------------------"
+ps -eo user,pid,ppid,%cpu,%mem,tty,cmd --sort=ppid
+
+echo ""
+echo "---------------------------------------------"
+echo "Process Hierarchy Tree (with PIDs):"
+echo "---------------------------------------------"
+pstree -pau
