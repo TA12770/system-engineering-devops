@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for pid in /proc/[0-9]*; do
+  if [[ -r "$pid/comm" ]]; then
+    proc_name=$(<"$pid/comm")
+    if [[ "$proc_name" == *bash* ]]; then
+      echo "$(basename "$pid") $proc_name"
+    fi
+  fi
+done
