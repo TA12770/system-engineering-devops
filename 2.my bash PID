@@ -1,0 +1,44 @@
+Here’s a Bash script that meets all your requirements — it lists all processes and filters only those containing the word `bash`, helping you find the PID(s) of Bash processes.
+
+---
+**Script: `find_bash_process.sh`**
+
+```bash
+#!/bin/bash
+# shellcheck disable=SC2009
+
+ps aux | grep bash | grep -v grep
+```
+
+---
+
+ **Explanation:**
+
+* `ps aux` — lists **all running processes** for all users.
+* `grep bash` — filters the list to show only lines containing `"bash"`.
+* `grep -v grep` — removes the `grep bash` command itself from appearing in the results.
+
+---
+
+*How to Use:**
+
+1. Save the script as `find_bash_process.sh`.
+2. Make it executable:
+
+   ```bash
+   chmod +x find_bash_process.sh
+   ```
+3. Run it:
+
+   ```bash
+   ./find_bash_process.sh
+   ```
+
+You’ll get output like:
+
+```
+youruser   12345  0.0  0.1  20000  4000 pts/0    Ss   10:10   0:00 -bash
+```
+
+Where `12345` is the PID of your Bash shell.
+
