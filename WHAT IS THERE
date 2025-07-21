@@ -1,0 +1,8 @@
+import os
+
+# List all items in the current directory
+contents = os.listdir('.')
+
+print("Contents of the current directory:")
+for item in contents:
+    print(item)
